@@ -8,6 +8,6 @@ class Post extends Model
 {
     public function user()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(User::class);
     }
 }

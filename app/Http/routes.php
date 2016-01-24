@@ -12,6 +12,10 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('posts/{id}', [
+    'uses' => 'PostsController@show',
+    'as' => 'post_show_path'
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +28,6 @@ Route::get('/', 'HomeController@index');
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+/*Route::group(['middleware' => ['web']], function () {
     //
-});
+});*/

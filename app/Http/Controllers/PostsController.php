@@ -8,15 +8,16 @@ use PlatziPHP\Http\Requests;
 use PlatziPHP\Http\Controllers\Controller;
 use PlatziPHP\Post;
 
-class HomeController extends Controller
+class PostsController extends Controller
 {
     /**
+     * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public  function index()
+    public function show($id)
     {
-        $posts = Post::with('user')->get();
+        $post = Post::findOrFail($id);
 
-        return view('home', ['posts' => $posts]);
+        return view('post', ['post' => $post]);
     }
 }
