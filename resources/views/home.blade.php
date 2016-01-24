@@ -4,11 +4,17 @@
 
     <h1>Estos son nuestros post</h1>
 
-    <ul>
+    <ul class="list-unstyled">
         @foreach($posts as $post)
             <li>
-                <a href="{{ route('post_show_path', $post->id) }}">{{ $post->title }}</a>
-                {{ $post->name }} - {{ $post->user->name }}
+                <p class="lead">
+                    <a href="{{ route('post_show_path', $post->id) }}">{{ $post->title }}</a>
+                </p>
+                <br/>
+                autor: {{ $post->user->name }}
+                <br/>
+                creado: {{ $post->created_at }}
+                <hr/>
             </li>
         @endforeach
     </ul>
