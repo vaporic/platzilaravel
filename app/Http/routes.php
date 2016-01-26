@@ -28,6 +28,13 @@ Route::get('posts/{id}', [
 |
 */
 
-/*Route::group(['middleware' => ['web']], function () {
-    //
-});*/
+Route::group(['middleware' => ['web']], function () {
+    Route::get('auth',[
+        'uses' => 'AuthController@index',
+        'as' => 'auth_show_path'
+    ]);
+    Route::post('auth', [
+        'uses' => 'AuthController@store',
+        'as' => 'auth_store_path'
+    ]);
+});
